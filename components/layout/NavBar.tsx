@@ -1,5 +1,10 @@
+import Link from "next/link";
+import { MdNoteAlt } from "react-icons/md";
 import Container from "./Container";
+import Notifications from './Notifications';
+import SearchInput from "./SearchInput";
 import ThemeToggle from "./ThemeToggle";
+import UserButton from "./UserButton";
 
 const NavBar = () => {
     return (
@@ -8,14 +13,19 @@ const NavBar = () => {
             >
                 <div className="flex items-center justify-between gap-8">
                     <div className="flex items-center gap-1 cursor-pointer">
-                        <div>Icon</div>
-                        <div>WEBDEV.blog</div>
+                        <MdNoteAlt size={24} />
+                        <div className="font-bold text-xl">WEBDEV.blog</div>
                     </div>
-                    <div>Search</div>
+                    <SearchInput />
                     <div className="flex items-center gap-5 sm:gap-8">
                         <ThemeToggle />
-                        <div>Notifications</div>
-                        <div>UserMenu</div>
+                        <Notifications />
+                        <UserButton />
+                        <>
+                            <Link href={"/login"}>Login</Link>
+                            <Link href={"/register"}>Register</Link>
+
+                        </>
                     </div>
                 </div>
             </Container>
